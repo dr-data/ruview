@@ -1,5 +1,5 @@
 export default {
-  name: 'WiFi-DensePose',
+  name: 'Aibes',
   slug: 'wifi-densepose',
   version: '1.0.0',
   ios: {
