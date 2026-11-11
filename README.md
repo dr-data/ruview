@@ -1,12 +1,11 @@
-# π RuView
+# Aibes
+
+> **Independent project branding:** Aibes builds on the open source [upstream WiFi sensing project](https://github.com/ruvnet/RuView). Original authorship, licenses, upstream links and published package or protocol identifiers remain intact for attribution and compatibility.
 
 <p align="center">
-  <a href="https://cognitum.one/seed">
-    <img src="assets/ruview-hero-h3-v3.gif" alt="RuView - WiFi DensePose — animated visualization of real-time pose estimation, breathing, and heart-rate sensing through WiFi" width="100%">
-  </a>
+  <a href="docs/user-guide.md"><img src="assets/aibes-hero.svg" alt="Aibes, private WiFi sensing and spatial intelligence" width="100%"></a>
 </p>
 
-[![RuView: spaces become signals, with an animated conceptual RF field](assets/readme/hero-spatial-v6.svg)](docs/user-guide.md)
 
 <table>
 <tr>
@@ -21,11 +20,7 @@
 </tr>
 </table>
 
-<p align="center">
-  <a href="https://ruos.cognitum.one">
-    <img src="assets/ruos-animated.svg" alt="RuView — WiFi becomes spatial awareness, with Ruflo coordination and a ruOS sensing workspace" width="100%">
-  </a>
-</p>
+
 
 
 ## **See through walls with WiFi** ##
@@ -38,11 +33,11 @@ Works natively with the four major smart-home ecosystems: **[Home Assistant](doc
 
 > Drop into any **Home Assistant** install with one `--mqtt` flag. Or pair into **Apple Home / Google Home / Alexa / SmartThings** as a Matter Bridge. Ships 21 entities per node (11 raw signals + 10 inferred semantic states: someone-sleeping, possible-distress, room-active, elderly-inactivity-anomaly, meeting-in-progress, bathroom-occupied, fall-risk-elevated, bed-exit, no-movement, multi-room-transition) plus 3 starter HA Blueprints. See [`docs/integrations/home-assistant.md`](docs/integrations/home-assistant.md) · [ADR-115](docs/adr/ADR-115-home-assistant-integration.md).
 
-### π RuView is a WiFi sensing platform that turns radio signals into spatial intelligence.
+### π Aibes is a WiFi sensing platform that turns radio signals into spatial intelligence.
 
-Every WiFi router already fills your space with radio waves. When people move, breathe, or even sit still, they disturb those waves in measurable ways. RuView captures these disturbances using Channel State Information (CSI) from low-cost ESP32 sensors and turns them into actionable data: who's there, what they're doing, and whether they're okay.
+Every WiFi router already fills your space with radio waves. When people move, breathe, or even sit still, they disturb those waves in measurable ways. Aibes captures these disturbances using Channel State Information (CSI) from low-cost ESP32 sensors and turns them into actionable data: who's there, what they're doing, and whether they're okay.
 
-[![Explore RuView sensing, models and automation](assets/readme/header-features-spatial-v4.svg)](docs/user-guide.md)
+[![Explore Aibes sensing, models and automation](assets/readme/header-features-spatial-v4.svg)](docs/user-guide.md)
 
 **What it senses:**
 - **Presence and occupancy** — detect people through walls, count them, track entries and exits
@@ -58,7 +53,7 @@ Every WiFi router already fills your space with radio waves. When people move, b
 - **Local automation** — HOMECORE provides state, history, automations, signed Wasm plugins, voice hooks, and HomeKit support
 - **Unified RF world model** — combine WiFi CSI, radar, UWB, and cellular sensing in one privacy-bounded scene model; accuracy is still synthetic until real-data validation
 - **Governed evidence** — attach privacy policy, uncertainty, provenance, and witness records to sensing events
-- **RuView MetaHarness** — use an AI operator to onboard, calibrate, train, verify, and check sensing claims
+- **Aibes MetaHarness** — use an AI operator to onboard, calibrate, train, verify, and check sensing claims
 
 <!-- ruview-capability-cards -->
 <table>
@@ -77,9 +72,9 @@ Every WiFi router already fills your space with radio waves. When people move, b
 </table>
 
 <details>
-<summary><strong>RuView MetaHarness</strong> — guided operation for humans and AI agents</summary>
+<summary><strong>Aibes MetaHarness</strong> — guided operation for humans and AI agents</summary>
 
-The RuView-specific metaharness we created is published as [`@ruvnet/ruview`](harness/ruview/README.md). It provides:
+The Aibes-specific metaharness we created is published as [`@ruvnet/ruview`](harness/ruview/README.md). It provides:
 - source-cited guidance;
 - device access for CSI nodes, radar and LiDAR;
 - firmware flashing with boot evidence;
@@ -109,7 +104,7 @@ RUVIEW_MCP_GRANTS=device-access npx @ruvnet/ruview@0.9.1 mcp start --http
 # Claude Code: a live sensing pane (/ruview), shipped in the package
 npx @ruvnet/ruview@0.9.1 mod
 
-# Run a read-only RuView agent through Codex
+# Run a read-only Aibes agent through Codex
 npx @ruvnet/ruview@0.9.1 agent run --host codex --repo . \
   --prompt "Find the nearest tests and cite the source files"
 
@@ -128,15 +123,15 @@ npx @ruvnet/ruview@0.9.1 brain search --query "calibration"
 
 A single `npx ruview` package bundling all of this is ready (ADR-376). It is waiting on npm to release the unscoped name.
 
-Full walkthrough: [user guide → RuView npm toolkit](docs/user-guide.md#ruview-npm-toolkit-ruvnetruview).
+Full walkthrough: [user guide → Aibes npm toolkit](docs/user-guide.md#ruview-npm-toolkit-ruvnetruview).
 
 </details>
 
-Built on [RuVector](https://github.com/ruvnet/ruvector/) and [Cognitum Seed](https://cognitum.one), RuView runs entirely on edge hardware — an ESP32 mesh (as low as $9 per node) paired with a Cognitum Seed for persistent memory, cryptographic attestation, and AI integration. No cloud, no cameras, no internet required.
+Built on [RuVector](https://github.com/ruvnet/ruvector/) and [Cognitum Seed](https://cognitum.one), Aibes runs entirely on edge hardware — an ESP32 mesh (as low as $9 per node) paired with a Cognitum Seed for persistent memory, cryptographic attestation, and AI integration. No cloud, no cameras, no internet required.
 
 The system learns each environment locally using spiking neural networks that adapt in under 30 seconds, with multi-frequency mesh scanning across 6 WiFi channels that uses your neighbors' routers as free radar illuminators. Every measurement is cryptographically attested via an Ed25519 witness chain.
 
-RuView turns ordinary WiFi into a contactless sensor. A $9 ESP32 board reads the radio reflections off the people in a room, and a small pretrained model — published on Hugging Face at [`ruvnet/wifi-densepose-pretrained`](https://huggingface.co/ruvnet/wifi-densepose-pretrained) — tells you who's there, how they're breathing, and how their heart rate is trending. The model fits in 8 KB (4-bit quantized) and runs in microseconds on a Raspberry Pi. (The [v2 encoder](https://huggingface.co/ruvnet/wifi-densepose-pretrained) reports an honest, label-free held-out **temporal-triplet accuracy of 82.3%** — up from 66.4% raw; the older "100% presence" figure was measured on a single-class recording and has been retracted in favor of this.) No cameras, no wearables, no app on the user's phone.
+Aibes turns ordinary WiFi into a contactless sensor. A $9 ESP32 board reads the radio reflections off the people in a room, and a small pretrained model — published on Hugging Face at [`ruvnet/wifi-densepose-pretrained`](https://huggingface.co/ruvnet/wifi-densepose-pretrained) — tells you who's there, how they're breathing, and how their heart rate is trending. The model fits in 8 KB (4-bit quantized) and runs in microseconds on a Raspberry Pi. (The [v2 encoder](https://huggingface.co/ruvnet/wifi-densepose-pretrained) reports an honest, label-free held-out **temporal-triplet accuracy of 82.3%** — up from 66.4% raw; the older "100% presence" figure was measured on a single-class recording and has been retracted in favor of this.) No cameras, no wearables, no app on the user's phone.
 
 ### Built for low-power edge applications
 
@@ -296,7 +291,7 @@ The separate **17-keypoint pose-estimation model** is now published at [`ruvnet/
 
 ### Results & proof
 
-[![RuView visual guide: header-evidence](assets/readme/header-evidence-spatial-v4.svg)](docs/benchmarks/pose-estimation-cog.md)
+[![Aibes visual guide: header-evidence](assets/readme/header-evidence-spatial-v4.svg)](docs/benchmarks/pose-estimation-cog.md)
 
 See the measured benchmarks, witness records, and one-command reproducibility check.
 
@@ -352,7 +347,7 @@ number. The path to a first *reproducible* on-device baseline (PCK@20 ≥ 35%) i
 
 ## 🧩 Edge Module Catalog
 
-[![RuView visual guide: header-edge](assets/readme/header-edge-spatial-v4.svg)](firmware/esp32-csi-node/README.md)
+[![Aibes visual guide: header-edge](assets/readme/header-edge-spatial-v4.svg)](firmware/esp32-csi-node/README.md)
 
 Add signed modules for health, security, buildings, industry, research, AI, and more.
 
@@ -528,7 +523,7 @@ Browse and install modules at [seed.cognitum.one/store](https://seed.cognitum.on
 
 ## 🔬 How It Works
 
-[![RuView visual guide: overview](assets/readme/overview-spatial-v4.svg)](docs/user-guide.md)
+[![Aibes visual guide: overview](assets/readme/overview-spatial-v4.svg)](docs/user-guide.md)
 
 WiFi routers flood every room with radio waves. When a person moves — or even breathes — those waves scatter differently. WiFi DensePose reads that scattering pattern and reconstructs what happened:
 
@@ -654,7 +649,7 @@ These scenarios exploit WiFi's ability to penetrate solid materials — concrete
 
 ## 🧠 Self-Learning WiFi AI
 
-[![RuView visual guide: header-learning](assets/readme/header-learning-spatial-v4.svg)](docs/user-guide.md)
+[![Aibes visual guide: header-learning](assets/readme/header-learning-spatial-v4.svg)](docs/user-guide.md)
 
 Learn compact room fingerprints from raw CSI and adapt the model to each environment.
 
@@ -747,11 +742,11 @@ Use the in-repo plugin for guided setup, sensing, training, and verification in 
 <details>
 <summary><strong>View plugin installation and commands</strong></summary>
 
-RuView's [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin and Codex prompt mirror cover onboarding, ESP32 setup, sensing apps, model training, advanced sensing, CLI/API/WASM, mmWave radar, and witness verification. The source lives in [`plugins/ruview/`](plugins/ruview/README.md); the marketplace manifest is [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
+Aibes's [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin and Codex prompt mirror cover onboarding, ESP32 setup, sensing apps, model training, advanced sensing, CLI/API/WASM, mmWave radar, and witness verification. The source lives in [`plugins/ruview/`](plugins/ruview/README.md); the marketplace manifest is [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
 
 ```bash
 # In Claude Code — add this repo as a plugin marketplace, then install:
-/plugin marketplace add ruvnet/RuView
+/plugin marketplace add ruvnet/Aibes
 /plugin install ruview@ruview
 
 # Or try it for one session without installing (from a local clone of the repo):
@@ -777,7 +772,7 @@ Verify the plugin structure: `bash plugins/ruview/scripts/smoke.sh`. Full detail
 - It is read-only.
 - Mods are early access; if `/ruview` is missing, start Claude Code with `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1`. See [ADR-377](docs/adr/ADR-377-ruview-live-claude-code-mod.md).
 
-For the portable RuView MetaHarness, use `npx @ruvnet/ruview@0.9.1`. The quick commands and a fuller explanation are in the collapsed MetaHarness section near the top of this README, in [`harness/ruview/`](harness/ruview/README.md), and in the [user guide](docs/user-guide.md#ruview-npm-toolkit-ruvnetruview).
+For the portable Aibes MetaHarness, use `npx @ruvnet/ruview@0.9.1`. The quick commands and a fuller explanation are in the collapsed MetaHarness section near the top of this README, in [`harness/ruview/`](harness/ruview/README.md), and in the [user guide](docs/user-guide.md#ruview-npm-toolkit-ruvnetruview).
 
 </details>
 
@@ -785,7 +780,7 @@ For the portable RuView MetaHarness, use `npx @ruvnet/ruview@0.9.1`. The quick c
 
 ## 📖 Documentation
 
-[![RuView visual guide: header-docs](assets/readme/header-docs-spatial-v4.svg)](docs/user-guide.md)
+[![Aibes visual guide: header-docs](assets/readme/header-docs-spatial-v4.svg)](docs/user-guide.md)
 
 Start with the user, build, and calibration guides; expand for the full reference map.
 
@@ -800,10 +795,10 @@ Start with the user, build, and calibration guides; expand for the full referenc
 | [Trust State & Engine Errors](docs/trust-and-engine-errors.md) | What `engine_error_count` and `demoted` mean on `/api/v1/status`, exact trigger conditions, the current diagnostic gap (no per-cause breakdown), the `WDP_GUARD_INTERVAL_US` recovery path, and why a converted Hugging Face model isn't shown to be the cause in code |
 | [**Home Assistant + Matter Integration**](docs/integrations/home-assistant.md) | **Works with Home Assistant** via MQTT auto-discovery + **Works with Matter** (Apple Home / Google Home / Alexa / SmartThings) — full entity catalog, 3 starter blueprints, Lovelace dashboards, privacy mode, threshold tuning ([ADR-115](docs/adr/ADR-115-home-assistant-integration.md)). |
 | [**BFLD — Beamforming Feedback Layer for Detection**](v2/crates/wifi-densepose-bfld/README.md) | New privacy-gated WiFi sensing layer that measures + structurally prevents identity leakage from 802.11ac/ax Beamforming Feedback Information. Three type-enforced invariants (raw BFI never exits node, identity embedding is in-RAM-only, cross-site correlation cryptographically impossible via per-site BLAKE3 keyed hash + daily rotation). Ships full operator surface (`BfldPipeline`, `BfldPipelineHandle`, the Soul Signature §3.6 per-channel matcher `EnrolledMatcher`/`SoulMatchOracle` — experimental; named identity is data-gated, **measured** as not-separable on WiFi-only channels alone), MQTT topic router + HA-DISCO + availability + LWT, 3 operator HA blueprints, two runnable examples, eclipse-mosquitto:2 CI service container. 327+ tests. [ADR-118](docs/adr/ADR-118-bfld-beamforming-feedback-layer-for-detection.md) umbrella + sub-ADRs [119](docs/adr/ADR-119-bfld-frame-format-and-wire-protocol.md)/[120](docs/adr/ADR-120-bfld-privacy-class-and-hash-rotation.md)/[121](docs/adr/ADR-121-bfld-identity-risk-scoring.md)/[122](docs/adr/ADR-122-bfld-ruview-ha-matter-exposure.md)/[123](docs/adr/ADR-123-bfld-capture-path-nexmon-and-esp32.md). Research dossier: [`docs/research/BFLD/`](docs/research/BFLD/) (11 files, 13,544 words). |
-| [**SENSE-BRIDGE — rvagent MCP server**](tools/ruview-mcp/README.md) | Dual-transport MCP server (`@ruvnet/rvagent`) bridging the RuView sensing stack to AI agents (Claude Code, Cursor, ruflo swarms). 6 tools wired: `ruview.presence.now`, `ruview.vitals.get_{breathing,heart_rate,all}`, `ruview.bfld.last_scan`, `ruview.bfld.subscribe`. stdio + Streamable HTTP (`POST /mcp`, Origin-validated, bearer-token auth, `127.0.0.1` bind). Full 20-tool Zod schema barrel + 5 RUVIEW-POLICY governance tools. 93 tests. [ADR-124](docs/adr/ADR-124-rvagent-mcp-ruvector-npm-integration.md). Try: `npx @ruvnet/rvagent stdio`. |
+| [**SENSE-BRIDGE — rvagent MCP server**](tools/ruview-mcp/README.md) | Dual-transport MCP server (`@ruvnet/rvagent`) bridging the Aibes sensing stack to AI agents (Claude Code, Cursor, ruflo swarms). 6 tools wired: `ruview.presence.now`, `ruview.vitals.get_{breathing,heart_rate,all}`, `ruview.bfld.last_scan`, `ruview.bfld.subscribe`. stdio + Streamable HTTP (`POST /mcp`, Origin-validated, bearer-token auth, `127.0.0.1` bind). Full 20-tool Zod schema barrel + 5 RUVIEW-POLICY governance tools. 93 tests. [ADR-124](docs/adr/ADR-124-rvagent-mcp-ruvector-npm-integration.md). Try: `npx @ruvnet/rvagent stdio`. |
 | [Semantic Primitives — Precision/Recall](docs/integrations/semantic-primitives-metrics.md) | Per-primitive F1 on the held-out paired-capture set: someone-sleeping, possible-distress, room-active, elderly-inactivity-anomaly, meeting, bathroom, fall-risk, bed-exit, no-movement, multi-room. |
 | [Claude Code / Codex Plugin](plugins/ruview/README.md) | The `ruview` plugin + marketplace — skills, `/ruview-*` commands, agents, and the Codex prompt mirror |
-| [Portable harness — `npx @ruvnet/ruview`](harness/ruview/README.md) | MetaHarness-minted, host-portable RuView operator harness — `ruview.*` MCP tools + the MEASURED-vs-CLAIMED honesty guardrail enforced in code ([ADR-182](docs/adr/ADR-182-npx-ruview-harness-via-metaharness.md)). A lighter, multi-host companion to the in-repo plugin. |
+| [Portable harness — `npx @ruvnet/ruview`](harness/ruview/README.md) | MetaHarness-minted, host-portable Aibes operator harness — `ruview.*` MCP tools + the MEASURED-vs-CLAIMED honesty guardrail enforced in code ([ADR-182](docs/adr/ADR-182-npx-ruview-harness-via-metaharness.md)). A lighter, multi-host companion to the in-repo plugin. |
 | [CSI Frame Selection — Measured](docs/csi-frame-selection-measured.md) | Which rate gate actually buys cross-node pairing, measured on a nine-node ESP32-C6 fleet as a 2x2 factorial in three Latin-square blocks. Selecting frames by 802.11 `rx_seq` roughly doubled pairing (+31.7 pp) while mesh-time alignment bought +0.5 pp, inside noise. Includes the trade it makes, a prediction that turned out wrong, the limits of the measurement, and `run_arms.py` so the comparison can be re-run rather than taken on trust. |
 | [ESP32-C6 Firmware Runbook](firmware/esp32-csi-node/RUNBOOK.md) | What to run, in what order, and what to check: the three-file build that keeps OTA rollback compiled in, a five-key pre-flash gate, which flash regions OTA can and cannot reach, a single-board diagnostic flash with a revert path, and the tunables whose right value depends on your house rather than on the chip. |
 | [Architecture Decisions](docs/adr/README.md) | 205 ADRs — why each technical choice was made, organized by domain (hardware, signal processing, ML, platform, infrastructure) |
@@ -836,7 +831,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## 🤝 Creator Affiliate Program
 
-**For TikTok · Instagram · YouTube creators** — earn **25% on every Cognitum sale** you refer. The RuFlo, RuView, and RuVector videos you're already making have done millions of views; get paid for the orders they drive. Click-tracking activates instantly; commissions activate after a quick manual review (usually under 24 hours).
+**For TikTok · Instagram · YouTube creators** — earn **25% on every Cognitum sale** you refer. The RuFlo, Aibes, and RuVector videos you're already making have done millions of views; get paid for the orders they drive. Click-tracking activates instantly; commissions activate after a quick manual review (usually under 24 hours).
 
 [Apply now → cognitum.one/affiliate](https://cognitum.one/affiliate)
 

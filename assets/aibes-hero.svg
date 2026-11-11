@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+<title id="title">Aibes WiFi Spatial Intelligence</title><desc id="desc">Aibes brand banner, with radio sensing waves and a stylized person inside a spatial field.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b172c"/><stop offset=".52" stop-color="#122941"/><stop offset="1" stop-color="#0a3537"/></linearGradient>
+<linearGradient id="teal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5eead4"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#2dd4bf" stop-opacity=".24"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#72e4d8" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1200" height="370" rx="22" fill="url(#bg)"/>
+<rect width="1200" height="370" rx="22" fill="url(#grid)"/>
+<circle cx="950" cy="180" r="270" fill="url(#glow)"/>
+<g opacity=".85" fill="none" stroke="#5eead4" stroke-width="2.5">
+<path d="M810 180a110 110 0 0 1 220 0" opacity=".50"/>
+<path d="M769 180a151 151 0 0 1 302 0" opacity=".38"/>
+<path d="M724 180a196 196 0 0 1 392 0" opacity=".24"/>
+<path d="M810 192a110 110 0 0 0 220 0" opacity=".50"/>
+<path d="M769 192a151 151 0 0 0 302 0" opacity=".38"/>
+<path d="M724 192a196 196 0 0 0 392 0" opacity=".24"/>
+</g>
+<g fill="none" stroke="#a7f3d0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="920" cy="122" r="21"/>
+<path d="M920 146v81m0-52-40 29m40-29 40 29m-40 23-33 62m33-62 33 62"/>
+</g>
+<circle cx="920" cy="185" r="4.5" fill="#5eead4"/>
+<g font-family="Inter,Arial,sans-serif">
+<text x="75" y="155" fill="#f1f5f9" font-size="90" font-weight="750" letter-spacing="-3">Aibes</text>
+<rect x="80" y="178" width="91" height="5" rx="2.5" fill="url(#teal)"/>
+<text x="80" y="231" fill="#a7f3d0" font-size="29" font-weight="500">WiFi Spatial Intelligence</text>
+<text x="80" y="282" fill="#cbd5e1" font-size="22">Private sensing. Local intelligence. Real signals.</text>
+</g>
+</svg>
