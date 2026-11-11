@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ======================================================================
-#  WiFi-DensePose / RuView — Trust Kill Switch
+#  WiFi-DensePose / Aibes — Trust Kill Switch
 #
 #  One-command proof replay across every layer of the stack:
 #    1. Python signal-processing pipeline (the original v1 proof)
@@ -86,7 +86,7 @@ phase() { echo ""; echo -e "${CYAN}[PHASE $1] $2${RESET}"; echo ""; }
 
 echo ""
 echo -e "${BOLD}======================================================================"
-echo "  WiFi-DensePose / RuView — Trust Kill Switch (multi-layer proof)"
+echo "  WiFi-DensePose / Aibes — Trust Kill Switch (multi-layer proof)"
 echo -e "======================================================================${RESET}"
 
 PYTHON="$(command -v python3 || command -v python || true)"
