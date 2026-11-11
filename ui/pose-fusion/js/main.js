@@ -1,5 +1,5 @@
 /**
- * RuView — Dual-Modal Pose Estimation Demo
+ * Aibes — Dual-Modal Pose Estimation Demo
  *
  * Main orchestration: video capture → CNN embedding → CSI processing → fusion → rendering
  */
