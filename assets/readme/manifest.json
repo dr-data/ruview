@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "style": "RuView spatial v4: navy glass, electric blue, lime and amber",
+  "style": "Aibes spatial v4: navy glass, electric blue, lime and amber",
   "motion": "Decorative CSS; prefers-reduced-motion supported; no script or remote dependencies",
   "assets": [
     {
       "file": "assets/readme/hero-spatial-v6.svg",
-      "title": "RuView: invisible signals, visible possibility",
+      "title": "Aibes: invisible signals, visible possibility",
       "target": "docs/user-guide.md",
       "width": 1200,
       "height": 450
@@ -96,7 +96,7 @@
     },
     {
       "file": "assets/readme/overview-spatial-v4.svg",
-      "title": "RuView sensing overview",
+      "title": "Aibes sensing overview",
       "target": "docs/user-guide.md",
       "width": 1200,
       "height": 396

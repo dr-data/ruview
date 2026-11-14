@@ -13,7 +13,7 @@ No cameras. No wearables. Works through walls and in the dark.
 sensing stack: a Rust core that turns the Channel State Information (CSI)
 emitted by ordinary WiFi chips into ambient-intelligence signals. The wheel
 ships compiled DSP for fast offline analysis, plus an opt-in Python client
-for talking to a live RuView sensing-server over WebSocket or MQTT.
+for talking to a live Aibes sensing-server over WebSocket or MQTT.
 
 ## Features
 
@@ -24,7 +24,7 @@ In the compiled wheel (runs offline, no server needed):
   `HeartRateExtractor` (40–120 BPM), each estimate carrying a confidence
   score and a valid / degraded / unreliable status
 - **Pose types** — `Keypoint`, `PoseEstimate`, `PersonPose`, `BoundingBox`
-  for the 17-keypoint skeletons a RuView sensing-server produces
+  for the 17-keypoint skeletons a Aibes sensing-server produces
 - **Beamforming Feedback (BFLD) support** — 802.11ac/ax/be compressed feedback
   matrices on top of the receiver-side CSI path
 - **Witness check** — `wifi_densepose.verify_witness()` re-runs the published
@@ -35,7 +35,7 @@ In the compiled wheel (runs offline, no server needed):
 - **Small wheel** — under 400 KB compiled (one binary per OS/arch covers
   Python 3.10+ via the stable ABI)
 
-With the `[client]` extra, from a live RuView sensing-server:
+With the `[client]` extra, from a live Aibes sensing-server:
 
 - **Pose, presence, person count, fall detection, motion** — streamed over
   WebSocket (`SensingClient`) or MQTT (`RuViewMqttClient`)
@@ -196,7 +196,7 @@ print(frame.n_subcarriers, frame.mean_amplitude)
 
 Works with any WiFi chip that exposes CSI. Reference setups (ESP-IDF firmware,
 build scripts, witness-verified test bundles) are in the
-[RuView repo](https://github.com/ruvnet/RuView):
+[Aibes repo](https://github.com/ruvnet/RuView):
 
 | Device | Cost | Role |
 |---|---|---|

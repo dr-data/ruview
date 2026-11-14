@@ -1,6 +1,6 @@
-# RuView iPhone LiDAR
+# Aibes iPhone LiDAR
 
-This experimental integration provides the native and browser components needed to use a LiDAR-capable iPhone as a RuView geometry sensor. The native source is type-checked against the iOS SDK in CI; physical-device validation is tracked separately below.
+This experimental integration provides the native and browser components needed to use a LiDAR-capable iPhone as a Aibes geometry sensor. The native source is type-checked against the iOS SDK in CI; physical-device validation is tracked separately below.
 
 ## Architecture
 
@@ -24,7 +24,7 @@ Add this Info.plist value:
 
 ```xml
 <key>NSCameraUsageDescription</key>
-<string>RuView uses the camera and LiDAR scanner to capture local depth geometry.</string>
+<string>Aibes uses the camera and LiDAR scanner to capture local depth geometry.</string>
 ```
 
 Run on a physical LiDAR capable iPhone or iPad. The simulator does not provide LiDAR scene depth.
@@ -61,7 +61,7 @@ Depth is downsampled by 2 in each dimension by default and streamed at a maximum
 
 The initial implementation labels provenance as `source=live` and `privacyClass=geometry-only`. It sends depth geometry, confidence, camera intrinsics, pose, sequence, and wall clock timestamp. It does not send RGB imagery.
 
-The development relay requires an ephemeral token and bounds each WebSocket message, but it is not a production trust boundary. Production integration should terminate the WebSocket inside RuView, authenticate the device using the existing sensor identity path, convert each frame into `ruview-hal::Observation`, and attach witness receipts before fusion or persistence.
+The development relay requires an ephemeral token and bounds each WebSocket message, but it is not a production trust boundary. Production integration should terminate the WebSocket inside Aibes, authenticate the device using the existing sensor identity path, convert each frame into `ruview-hal::Observation`, and attach witness receipts before fusion or persistence.
 
 ## Validation status
 

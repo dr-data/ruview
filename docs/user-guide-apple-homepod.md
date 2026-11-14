@@ -1,12 +1,13 @@
-# RuView ↔ HomePod Integration Guide
+<a id="ruview-homepod-integration-guide"></a>
+# Aibes ↔ HomePod Integration Guide
 
-**Ambient intelligence for Apple Home.** Run RuView as a native HomeKit accessory so your HomePod discovers it, Siri understands it, and Apple Home automations govern it — no Home Assistant required.
+**Ambient intelligence for Apple Home.** Run Aibes as a native HomeKit accessory so your HomePod discovers it, Siri understands it, and Apple Home automations govern it — no Home Assistant required.
 
 ---
 
 ## Architecture Overview
 
-RuView turns WiFi radio reflections into spatial intelligence (presence, breathing, fall risk, activity patterns). When paired with a HomePod or Apple TV acting as your Home Hub, RuView becomes an invisible sensor that feeds Siri, automations, and scenes:
+Aibes turns WiFi radio reflections into spatial intelligence (presence, breathing, fall risk, activity patterns). When paired with a HomePod or Apple TV acting as your Home Hub, Aibes becomes an invisible sensor that feeds Siri, automations, and scenes:
 
 ```
 ESP32-C6 CSI node (living room)
@@ -22,7 +23,7 @@ iPhone, iPad, Mac, Watch, Apple Home automations
 
 The integration leverages HomeKit Accessory Protocol (HAP-1.1) — the same standard that Philips Hue, Eve, and Nanoleaf use. Your HomePod discovers the bridge within seconds of launch, pairing is one-tap from the Home app, and Siri queries work immediately: *"Hey Siri, is anyone in the living room?"*
 
-For design rationale and privacy safeguards, see [ADR-125 — RuView ↔ Apple Home native HAP bridge](docs/adr/ADR-125-ruview-apple-home-native-hap-bridge.md).
+For design rationale and privacy safeguards, see [ADR-125 — Aibes ↔ Apple Home native HAP bridge](docs/adr/ADR-125-ruview-apple-home-native-hap-bridge.md).
 
 ---
 
@@ -43,11 +44,11 @@ Eight incremental iterations landed in PR #797 on the `feat/adr-125-apple-fabric
 
 **What you can do today:**
 
-- Pair a RuView bridge into your Home app on iPhone, iPad, or Mac.
+- Pair a Aibes bridge into your Home app on iPhone, iPad, or Mac.
 - Ask Siri room-specific presence questions ("is anyone home", "is the office occupied", "did someone fall").
 - Trigger automations on presence detection, breathing presence, fall risk, or activity pattern anomalies.
-- Stream RuView events to HomePod announcements via the Shortcuts-as-glue path (Tier 2).
-- Query RuView data programmatically through the agentic MCP interface (Claude Code integration).
+- Stream Aibes events to HomePod announcements via the Shortcuts-as-glue path (Tier 2).
+- Query Aibes data programmatically through the agentic MCP interface (Claude Code integration).
 
 ---
 
@@ -87,7 +88,8 @@ source venv/bin/activate
 pip install HAP-python
 ```
 
-### Step 3: Copy the RuView bridge scripts to the Mac
+<a id="step-3-copy-the-ruview-bridge-scripts-to-the-mac"></a>
+### Step 3: Copy the Aibes bridge scripts to the Mac
 
 From the repository (e.g., cloned on your Mac), copy these files:
 
@@ -134,7 +136,7 @@ Output: Look for setup code in the terminal output, e.g., `Setup code: 200-70-91
 1. Open the **Home** app on your iPhone.
 2. Tap the **+** icon (top right) → **Add Accessory**.
 3. Scan the setup code (or tap **Don't Have a Code or Can't Scan?** → **More Options**).
-4. Select the **RuView Sense** bridge from the list (should appear within 10 seconds).
+4. Select the **Aibes Sense** bridge from the list (should appear within 10 seconds).
 5. Assign to a room (e.g., "Living Room").
 6. Tap **Done**.
 
@@ -173,7 +175,7 @@ The HAP bridge auto-discovers `*.json` files in `/tmp/ruview-state*` and creates
 
 ## Privacy Semantics
 
-RuView's BFLD (Beamforming Feedback Layer for Detection) uses a **privacy class** gate that enforces what data can cross the HomeKit boundary. Only Classes 2 and 3 (Anonymous and Restricted) are eligible; Class 0/1 (Raw identity information) is never exposed.
+Aibes's BFLD (Beamforming Feedback Layer for Detection) uses a **privacy class** gate that enforces what data can cross the HomeKit boundary. Only Classes 2 and 3 (Anonymous and Restricted) are eligible; Class 0/1 (Raw identity information) is never exposed.
 
 ### The Three Semantic Events
 
@@ -230,7 +232,7 @@ Each room also exposes a **StatelessProgrammableSwitch** that fires on semantic-
 
 ## HomePod Announcements via Shortcuts (Tier 2 Path)
 
-The easiest way to announce RuView events on a HomePod is through **Shortcuts-as-glue** — a native macOS launchd job that watches RuView's semantic events and triggers a Shortcut you define.
+The easiest way to announce Aibes events on a HomePod is through **Shortcuts-as-glue** — a native macOS launchd job that watches Aibes's semantic events and triggers a Shortcut you define.
 
 This path **bypasses the Bonjour reflector blocker** that can prevent HomePod discovery in some mesh networks. Instead of direct mDNS, the Mac uses the Home graph (iCloud-paired) to reach the HomePod.
 
@@ -251,7 +253,7 @@ This path **bypasses the Bonjour reflector blocker** that can prevent HomePod di
 osascript -e 'tell application "Shortcuts Events" to run shortcut "RuView Announce" with input "Test from RuView"'
 ```
 
-Your HomePod should speak "Test from RuView" in your chosen voice.
+Your HomePod should speak "Test from Aibes" in your chosen voice.
 
 #### 3. Install the launchd job
 
@@ -315,7 +317,7 @@ Because the Shortcut is operator-editable in Shortcuts.app, you can extend it to
 - **Send a message** to another person's iPhone
 - **Trigger a HomeKit secure camera recording**
 
-This is the flexibility of the Shortcuts-as-glue approach — no code change needed in RuView, all customization in the operator's own Shortcuts library.
+This is the flexibility of the Shortcuts-as-glue approach — no code change needed in Aibes, all customization in the operator's own Shortcuts library.
 
 For complete setup details and troubleshooting, see [`scripts/macos-shortcuts/README.md`](scripts/macos-shortcuts/README.md).
 
@@ -323,7 +325,7 @@ For complete setup details and troubleshooting, see [`scripts/macos-shortcuts/RE
 
 ## Agentic Consumption via MCP
 
-RuView's sensing stream is also available through Model Context Protocol (MCP) — the standard interface for Claude Code and other AI agents to query RuView data.
+Aibes's sensing stream is also available through Model Context Protocol (MCP) — the standard interface for Claude Code and other AI agents to query Aibes data.
 
 ### The `@ruvnet/rvagent` npm package (v0.1.0)
 
@@ -465,7 +467,7 @@ These items are intentionally deferred or beyond the current release:
 
 ## References
 
-- [ADR-125 — RuView ↔ Apple Home native HAP bridge](docs/adr/ADR-125-ruview-apple-home-native-hap-bridge.md) — Design spec, privacy rationale, sequencing
+- [ADR-125 — Aibes ↔ Apple Home native HAP bridge](docs/adr/ADR-125-ruview-apple-home-native-hap-bridge.md) — Design spec, privacy rationale, sequencing
 - [ADR-118 — Beamforming Feedback Layer for Detection](docs/adr/ADR-118-bfld-beamforming-feedback-layer-for-detection.md) — BFLD privacy gate and identity-risk semantics
 - [ADR-124 — rvagent MCP / RuVector npm integration](docs/adr/ADR-124-rvagent-mcp-ruvector-npm-integration.md) — MCP tool specification
 - [Issue #796](https://github.com/ruvnet/RuView/issues/796) — Tier 1+2 sprint tracking (close-out comments have per-iter empirical data)

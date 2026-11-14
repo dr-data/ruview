@@ -2,7 +2,7 @@
 """
 ruview-hap-bridge.py — ADR-125 §2.1.c production bridge (Tier 1+2 iter 3).
 
-One HAP bridge `RuView Sensing` carrying N child accessories — one per
+One HAP bridge `Aibes Sensing` carrying N child accessories — one per
 room. Implements the topology decision from ADR-125 §2.1.c: single
 pairing for the operator, child accessories that map cleanly to
 "is there motion in the [room]?" Siri queries.
@@ -183,7 +183,7 @@ def main() -> int:
     args = p.parse_args()
 
     driver = AccessoryDriver(port=args.port, persist_file=str(PERSIST_FILE))
-    bridge = Bridge(driver, "RuView Sensing")
+    bridge = Bridge(driver, "Aibes Sensing")
     bridge.category = CATEGORY_BRIDGE
 
     rooms: list[tuple[str, Path]] = []
@@ -212,7 +212,7 @@ def main() -> int:
     if hasattr(setup_code, "decode"):
         setup_code = setup_code.decode()
     SETUP_CODE_FILE.write_text(str(setup_code) + "\n")
-    print(f"[bridge] HAP bridge advertising as 'RuView Sensing' (production)",
+    print(f"[bridge] HAP bridge advertising as 'Aibes Sensing' (production)",
           flush=True)
     print(f"[bridge] Setup code (also in {SETUP_CODE_FILE}): {setup_code}",
           flush=True)

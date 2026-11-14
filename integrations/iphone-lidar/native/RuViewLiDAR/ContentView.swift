@@ -47,7 +47,7 @@ struct ContentView: View {
                     .disabled(capture.state != .running)
                 }
 
-                Section("RuView Stream") {
+                Section("Aibes Stream") {
                     TextField("ws://host:port/ws/lidar", text: $endpoint)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -80,7 +80,7 @@ struct ContentView: View {
                         .font(.footnote)
                 }
             }
-            .navigationTitle("RuView LiDAR")
+            .navigationTitle("Aibes LiDAR")
             .onAppear {
                 capture.onFrame = { frame in
                     guard streaming else { return }
